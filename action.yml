@@ -1,0 +1,25 @@
+name: Hello World
+description: Greet someone and record the time
+
+inputs:
+  url:
+    description: the url of your Plural Console instance
+    required: true
+  token:
+    description: the token to use to authenticate with Plural Console
+    required: true
+  prAutomation:
+    description: the name of the PR automation to trigger
+    required: true
+  branch:
+    description: the branch to create the PR on
+    required: true
+  identifier:
+    description: the repository identifier slug to use to create the PR, eg "plural/console"
+    required: false
+  context:
+    description: the context to use to create the PR
+    required: false
+runs:
+  using: node20
+  main: index.js
