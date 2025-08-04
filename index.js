@@ -14,11 +14,15 @@ async function main() {
     const token = core.getInput('token');
     const prAutomation = core.getInput('prAutomation');
     const branch = core.getInput('branch');
-    const identifier = core.getInput('identifier');
+    let identifier = core.getInput('identifier');
     let context = core.getInput('context');
 
     if (!context) {
         context = '{}';
+    }
+
+    if (!identifier) {
+        identifier = null
     }
 
     try {
@@ -41,7 +45,8 @@ async function main() {
     });
 
     if (!response.ok) {
-        core.setFailed(`Failed to create pull request: ${response.status} ${response.statusText}`);
+        const body = await response.text();
+        core.setFailed(`Failed to create pull request: ${response.status}\n${body}`);
         return;
     }
 
