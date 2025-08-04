@@ -27,7 +27,7 @@ context:
 
 ## Example Usage
 
-```
+```yaml
 - name: Authenticate
   id: plural
   uses: pluralsh/setup-plural@v2
