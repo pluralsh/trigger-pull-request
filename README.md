@@ -50,7 +50,7 @@ context:
 
 For this to be possible you need to have configured the following:
 
-1. Federated credential to allow `someone@example.com` to exchange a GH actions token for a temporary Plural token
+1. Federated credential to allow `someone@example.com` to exchange a GH actions token for a temporary Plural token.  This token should have at least the scope `createPullRequest`.
 2. A create binding on the `test-pr` PR automation to allow `someone@exmaple.com` to invoke it.  This is not permissible by default.
 3. The `test-pr` PR automation itself, and the associated credentials in Github or whatever other SCM provider it needs to communicate with.
 
