@@ -1,4 +1,5 @@
 import * as core from "@actions/core";
+import * as path from "path";
 
 const gqlDoc = `
 mutation CreatePullRequest($identifier: String, $branch: String!, $name: String!, $context: Json!) {
