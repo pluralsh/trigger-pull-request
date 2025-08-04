@@ -21,6 +21,13 @@ async function main() {
         context = '{}';
     }
 
+    try {
+        JSON.parse(context);
+    } catch (e) {
+        core.setFailed(`context must be a valid JSON object, got: ${context}`);
+        return;
+    }
+
     const response = await fetch(path.join(url, 'gql'), {
         method: 'POST',
         headers: {
@@ -29,7 +36,7 @@ async function main() {
         },
         body: JSON.stringify({ 
             query: gqlDoc, 
-            variables: { identifier, branch, name: prAutomation, context: JSON.stringify(context) } 
+            variables: { identifier, branch, context, name: prAutomation } 
         }),
     });
 
