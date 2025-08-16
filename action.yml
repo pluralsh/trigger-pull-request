@@ -1,5 +1,5 @@
-name: Hello World
-description: Greet someone and record the time
+name: Trigger Pull Request
+description: Trigger a pull request on a repository
 
 inputs:
   url:
@@ -18,7 +18,7 @@ inputs:
     description: the repository identifier slug to use to create the PR, eg "plural/console"
     required: false
   context:
-    description: the context to use to create the PR
+    description: the context to use to create the PR (JSON encoded)
     required: false
 runs:
   using: node20
